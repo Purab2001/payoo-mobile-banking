@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-800">
+    <section class="max-w-md min-h-screen mx-auto bg-gray-200">
+        <header class="">
+            <!-- Navbar -->
+            <nav class="flex justify-around items-center bg-white py-6 border-b border-gray-300">
+                <img class="w-12" src="assets/Group.png" alt="">
+                <div class="text-center">
+                    <h1 class="text-xl font-extrabold">$ <span id="main-balance">4500</span></h1>
+                    <p class="p-1 text-xs">Available Balance</p>
+                </div>
+                <button class="btn">Logout</button>
+            </nav>
+            <section class="pt-8 bg-white">
+                <h1 class="text-2xl font-bold mb-2 mx-8">Welcome to Payooo!</h1>
+                <p class="mx-8">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+                <!-- Cards -->
+                <div class="cards grid grid-cols-3 py-8 gap-2 px-8">
+                    <div id="add-money-box" class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/wallet 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Add Money</h3>
+                    </div>
+                    <div id="cashout-box" class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/send 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Cashout</h3>
+                    </div>
+                    <div class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/money 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Transfer Money</h3>
+                    </div>
+                    <div class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/financial 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Get Bonus</h3>
+                    </div>
+                    <div class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/purse 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Pay Bill</h3>
+                    </div>
+                    <div id="transaction-box" class="box hover:text-blue-500 hover:bg-blue-50 hover:border-blue-500 cursor-pointer border p-4 text-center rounded-xl border-gray-300">
+                        <img class="w-8 mx-auto mb-4" src="assets/transaction 1.png" alt="">
+                        <h3 class="text-xs font-semibold">Transactions</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add Money -->
+            <section class="mt-8" id="addmoney">
+                <h2 class="font-semibold pl-8 text-xl">Add Money</h2>
+                <div>
+                    <div class="hero-content flex-col lg:flex-row-reverse">
+                        <div class="card w-full max-w-sm shrink-0 bg-white">
+                            <div class="card-body">
+                                <legend>Select A Bank</legend>
+                                <select id="selected-bank" class="select rounded-xl border-none bg-gray-100">
+                                    <option disabled selected>Select Bank</option>
+                                    <option value="Bkash">Bkash</option>
+                                    <option value="Nagad">Nagad</option>
+                                    <option value="NCC">NCC</option>
+                                </select>
+                                <fieldset class="fieldset">
+                                    <label class="fieldset-label">Bank Account Number</label>
+                                    <input value="12345678912" id="account-number" type="number" class="input rounded-xl border-none bg-gray-100"
+                                        placeholder="Enter your number" required />
+                                    <label class="fieldset-label">Amount to Add</label>
+                                    <input id="amount" type="number" class="input rounded-xl border-none bg-gray-100" placeholder="Add Amount" required />
+                                    <label class="fieldset-label">4 Digit Pin</label>
+                                    <input value="1234" id="pin" type="text" class="input rounded-xl border-none bg-gray-100"
+                                        placeholder="Enter 4 Digit Pin" required />
+                                    <button id="add-money" class="btn btn-neutral border-none bg-blue-500 mt-4 rounded-xl font-semibold">Add
+                                        Money</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cashout -->
+            <section class="mt-8" id="cashout">
+                <h2 class="font-semibold pl-8 text-xl">Cashout</h2>
+                <div>
+                    <div class="hero-content flex-col lg:flex-row-reverse">
+                        <div class="card w-full max-w-sm shrink-0 bg-white">
+                            <div class="card-body">
+                                <fieldset class="fieldset">
+                                    <label class="fieldset-label">Bank Account Number</label>
+                                    <input value="12345678912" id="cashout-account-number" type="number" class="input rounded-xl border-none bg-gray-100"
+                                        placeholder="Enter your number" required />
+                                    <label class="fieldset-label">Amount to Add</label>
+                                    <input id="cashout-amount" type="number" class="input rounded-xl border-none bg-gray-100"
+                                        placeholder="Add Amount to withdraw" required />
+                                    <label class="fieldset-label">4 Digit Pin</label>
+                                    <input value="1234" id="cashout-pin" type="text" class="input rounded-xl border-none bg-gray-100"
+                                        placeholder="Enter 4 Digit Pin" required />
+                                    <button id="cashout-btn"
+                                        class="btn btn-neutral border-none bg-blue-500 mt-4 rounded-xl font-semibold">Cashout</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="mt-8" id="transaction-history">
+                <h2 class="font-semibold pl-8 text-xl mb-4">Transaction History</h2>
+                <div id="transaction-container" class="px-8">
+
+                </div>
+            </section>
+        </header>
+    </section>
+    <script src="utilities/utilities.js"></script>
+    <script src="script/add-money.js"></script>
+    <script src="script/toggle.js"></script>
+    <script src="script/cashout.js"></script>
+    <script src="script/transaction-history.js"></script>
+</body>
+
+</html>
